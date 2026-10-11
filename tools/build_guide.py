@@ -10,7 +10,7 @@ def public_label(s):
  return s.replace('God Mode references','God Mode shortcuts').replace('GUI references','GUI tools').replace('Legacy/version-dependent reference','Legacy/version-dependent tool')
 def slug(s):return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
 def codebox(ident,code,label='Copy command'):
- return f'<div class="code-box"><button class="copy" data-copy="{ident}" type="button">{esc(label)}</button><span class="copy-status" role="status"></span><pre id="{ident}">{esc(code)}</pre></div>'
+ return f'<div class="code-box"><button class="copy" data-copy="{ident}" type="button">{esc(label)}</button><span class="copy-status" role="status"></span><pre id="{ident}">{esc(code.replace(chr(13)+chr(10), chr(10)))}</pre></div>'
 # Starter for native CMD menu, launched from Windows PowerShell without a policy bypass.
 batch=(ROOT/'WindowsSupport.bat').read_bytes();digest=hashlib.sha256(batch).hexdigest();payload=base64.b64encode(batch).decode();wrapped='\n'.join(payload[i:i+100] for i in range(0,len(payload),100))
 batstarter=f'''# Native Windows CMD menu starter. Review the code before running.
