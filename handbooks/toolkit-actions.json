@@ -1,0 +1,237 @@
+[
+  {
+    "category": "Diagnostics",
+    "name": "System overview",
+    "admin": false
+  },
+  {
+    "category": "Networking",
+    "name": "Network diagnostics",
+    "admin": false
+  },
+  {
+    "category": "Diagnostics",
+    "name": "Recent system errors",
+    "admin": false
+  },
+  {
+    "category": "Windows repairs",
+    "name": "Check Windows component store (DISM)",
+    "admin": true
+  },
+  {
+    "category": "Windows repairs",
+    "name": "Repair Windows image and system files (DISM + SFC)",
+    "admin": true
+  },
+  {
+    "category": "Windows repairs",
+    "name": "Scan system drive for filesystem problems",
+    "admin": true
+  },
+  {
+    "category": "Networking",
+    "name": "Clear DNS cache",
+    "admin": true
+  },
+  {
+    "category": "Networking",
+    "name": "Reset Winsock",
+    "admin": true
+  },
+  {
+    "category": "Networking",
+    "name": "Reset TCP/IP configuration",
+    "admin": true
+  },
+  {
+    "category": "Printing",
+    "name": "Restart print spooler",
+    "admin": true
+  },
+  {
+    "category": "Security",
+    "name": "Microsoft Defender status",
+    "admin": false
+  },
+  {
+    "category": "Security",
+    "name": "Run Microsoft Defender quick scan",
+    "admin": true
+  },
+  {
+    "category": "Registry preferences",
+    "name": "File extensions: show (0) / hide (1)",
+    "admin": false
+  },
+  {
+    "category": "Registry preferences",
+    "name": "Hidden files: show (1) / hide (2)",
+    "admin": false
+  },
+  {
+    "category": "Registry preferences",
+    "name": "Explorer opens: This PC (1) / Home or Quick Access (2)",
+    "admin": false
+  },
+  {
+    "category": "Registry preferences",
+    "name": "Restore a saved registry preference",
+    "admin": false
+  },
+  {
+    "category": "Group Policy",
+    "name": "Show applied user and computer policies",
+    "admin": true
+  },
+  {
+    "category": "Group Policy",
+    "name": "Save applied policy HTML report (no browser launch)",
+    "admin": true
+  },
+  {
+    "category": "Group Policy",
+    "name": "Refresh Group Policy",
+    "admin": true
+  },
+  {
+    "category": "Group Policy",
+    "name": "List policy categories and editor locations",
+    "admin": false
+  },
+  {
+    "category": "Lab installations",
+    "name": "Check installed applications and lab commands",
+    "admin": false
+  },
+  {
+    "category": "Lab installations",
+    "name": "Install a selected lab application with WinGet",
+    "admin": true
+  },
+  {
+    "category": "Windows features",
+    "name": "Check lab features and virtualization support",
+    "admin": true
+  },
+  {
+    "category": "Windows features",
+    "name": "Enable a selected Windows feature",
+    "admin": true
+  },
+  {
+    "category": "Windows features",
+    "name": "Disable a selected Windows feature",
+    "admin": true
+  },
+  {
+    "category": "Firewall",
+    "name": "Show effective firewall and network profiles",
+    "admin": false
+  },
+  {
+    "category": "Firewall",
+    "name": "Turn ON a firewall profile",
+    "admin": true
+  },
+  {
+    "category": "Firewall",
+    "name": "Turn OFF a firewall profile",
+    "admin": true
+  },
+  {
+    "category": "Firewall",
+    "name": "Restore a saved firewall profile state",
+    "admin": true
+  },
+  {
+    "category": "Firewall",
+    "name": "Allow a lab TCP port (Private / local subnet)",
+    "admin": true
+  },
+  {
+    "category": "Firewall",
+    "name": "Remove a lab firewall rule",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "List local users and administrators",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "Create a standard local user",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "Enable a local user",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "Disable a local user",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "Grant local administrator membership",
+    "admin": true
+  },
+  {
+    "category": "Local users",
+    "name": "Remove local administrator membership",
+    "admin": true
+  },
+  {
+    "category": "Staff workflow",
+    "name": "Guided troubleshooting checklist by symptom",
+    "admin": false
+  },
+  {
+    "category": "Staff workflow",
+    "name": "Collect a read-only support report",
+    "admin": false
+  },
+  {
+    "category": "Staff workflow",
+    "name": "Show ticket and log locations",
+    "admin": false
+  },
+  {
+    "category": "System configuration",
+    "name": "Installed Windows hotfix history",
+    "admin": false
+  },
+  {
+    "category": "System configuration",
+    "name": "Power plan configuration",
+    "admin": false
+  },
+  {
+    "category": "System configuration",
+    "name": "Device status and problems",
+    "admin": false
+  },
+  {
+    "category": "System configuration",
+    "name": "Windows Recovery Environment status",
+    "admin": true
+  },
+  {
+    "category": "Services",
+    "name": "Check support services",
+    "admin": false
+  },
+  {
+    "category": "Services",
+    "name": "Start a support service",
+    "admin": true
+  },
+  {
+    "category": "Services",
+    "name": "Restart a support service",
+    "admin": true
+  }
+]

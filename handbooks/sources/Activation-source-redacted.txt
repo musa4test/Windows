@@ -1,0 +1,129 @@
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+
+
+slmgr /xpr
+slmgr /dlv
+slmgr /dli
+
+DISM /online /Get-CurrentEdition
+
+DISM /online /Get-TargetEditions
+
+
+#########################################################################
+
+(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+(Get-CimInstance -ClassName SoftwareLicensingService).OA3xOriginalProductKey
+
+Get-CimInstance SoftwareLicensingProduct |
+Where-Object { $_.PartialProductKey -and $_.Name -like "*Windows*" } |
+Select-Object Name, LicenseStatus, PartialProductKey
+
+
+
+##########################################################################
+
+slmgr /xpr
+slmgr /dli
+Get-CimInstance -ClassName SoftwareLicensingService).OA3xOriginalProductKey
+
+#############################################################################
+
+Write-Host "=== Windows Activation Info ===" -ForegroundColor Cyan
+
+$license = Get-CimInstance SoftwareLicensingProduct |
+Where-Object { $_.PartialProductKey -and $_.Name -like "*Windows*" }
+
+$service = Get-CimInstance SoftwareLicensingService
+
+$license | Select-Object Name, LicenseStatus, PartialProductKey
+
+Write-Host "`nOEM Embedded Key:" -ForegroundColor Yellow
+$service.OA3xOriginalProductKey
+
+#####################################################################################################
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows Script Host\Settings" -Name Enabled -Value 1 -Type DWord
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows Script Host\Settings" -Name Enabled -Value 1 -Type DWord
+
+New-Item -Path "HKCU:\Software\Microsoft\Windows Script Host" -Name "Settings" -Force
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows Script Host\Settings" -Name "Enabled" -Value 1 -PropertyType DWord -Force
+
+cscript.exe //nologo "$env:SystemRoot\System32\slmgr.vbs" /dli
+
+slmgr /ipk [PRODUCT KEY REDACTED]
+slmgr /ato
+slmgr /xpr
+
+#####################################################################################################
+
+[PRODUCT KEY REDACTED]
+
+ASUS
+
+
+Danish refugee Council HP com
+Product key Windows Professional 10
+
+[PRODUCT KEY REDACTED]
+
+---------------------------------------------------------
+[PRODUCT KEY REDACTED]
+----------------------------------------------------------
+[PRODUCT KEY REDACTED]  
+
+ASUS
+ 
+
+
+HP desktop windows home
+[PRODUCT KEY REDACTED] 
+
+
+
+Win Pro key
+
+
+
+
+
+
+
+
+
+In 2026, you can activate Windows using PowerShell by either installing a legitimate product key manually or by using an automated activation script. 
+Method 1: Using a Product Key (Official)
+If you have a 25-character product key, use these steps to activate your system:
+1. Open PowerShell as Administrator: Press Win + X and select Windows Terminal (Admin) or Windows PowerShell (Admin).
+2. Install the Key: Type the following command and replace the placeholders with your actual key:
+slmgr.vbs /ipk [PRODUCT KEY REDACTED]
+3. Activate Online: After the key is installed, run this command to complete online activation:
+slmgr.vbs /ato 
+Method 2: Using an Automated Activation Script
+Popular open-source scripts (such as those from Massgrave) allow you to activate Windows permanently via a single command. 
+1. Open PowerShell as Administrator.
+2. Run the Command: Copy and paste the following script URL and press Enter:
+irm https://get.activated.win | iex
+3. Select Activation Type: A menu will appear in the PowerShell window. Press 1 for HWID (Hardware ID) activation, which provides a permanent digital license for your machine. 
+Method 3: Recovering an OEM Key
+If your computer came with Windows pre-installed, the product key may be embedded in your motherboard. You can retrieve and use it with these steps: 
+• Retrieve the Key: Run this command to see the embedded OEM key:
+(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+• Apply the Key: Use Method 1 above to install and activate with the key you just found. 
+Note: Always ensure you have a stable internet connection before attempting to activate Windows. For more detailed official information, visit Microsoft Support. 
+These guides demonstrate how to activate Windows using PowerShell with either a product key or an automated script:
+
+From <https://www.google.com/search?q=how+to+activate+windows+with+powershe%C3%A6%C3%A6&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTEzMDU5ajBqN6gCCLACAQ&sourceid=chrome&ie=UTF-8&udm=50&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpV6Bbbmx4QVaoKkiRQ2jlwvCHF0Eqz8cUq4JjDCZnrJEJPua1MxnlJWIzg-ca3uHtcuA-CyYyXTIDPSeMBfznUFRyejet8H6aatoxNtF2UYN14QOQy7_TIBTpG1q3mMutJjS6sPSSRzVPOlc1NeciqwPRqAXe1q9wXbXGprxKpKSgCy2d&ved=2ahUKEwjd152qkoiSAxVc1QIHHYVXF9oQ0NsOegQIAxAB&aep=10&ntc=1&mtid=fQlmaZO2Dbifi-gP2p-MqQQ&mstk=AUtExfAQWPfnHO-an-Lq5yjn8tcExPSN6nxfd6pFCfrB9VHnWXkRz1WCsE7YQHMp3nTufZjLinhfzhVjf9DO72vmxmPux_TY7pdw1bPWaG4gURs2LzeA6b9CygjzrUSzWu_Yev-vyXPRS90b7CvbnkOjKuEZOmyHcgC7_aEASZ55Es4gbZOq_T9M2-gjhj9yYQJFJXNU0jzD4VercNBTlaOGhv-2pR5XQz7rNWPnFZ1Uf6X_i3j2rUggEbDCuS-Q2jv0ytlsOXHB2i5UDEe14M5KYQNIB4GtPuYFrQdSqyqTjFeBSL2HaWh8mPR-OHYGJvi5dW_1ow8Bqc8k2w&csuir=1> 
+
+
+
+https://massgrave.dev/
+
+irm https://get.activated.win | iex
+
+iex (curl.exe -s --doh-url https://1.1.1.1/dns-query https://get.activated.win | Out-String)
+
+
+

@@ -1,0 +1,76 @@
+WINDOWS KEYBOARD MAPS - ASCII KEY MAPS
+Labels: ae/AE = U+00E6/U+00C6; oe/OE = U+00F8/U+00D8;
+a-ring/A-ring = U+00E5/U+00C5; a-/o-/u-umlaut = U+00E4/00F6/00FC;
+sharp-s = U+00DF; GBP = U+00A3; EUR = U+20AC; section = U+00A7.
+Rows show UNshifted keys; letter capitals below label their positions.
+ISO means the extra key between Left Shift and the first letter.
+
+US (00000409) - QWERTY
++----------------------------------------------------------------+
+| ` | 1 2 3 4 5 6 7 8 9 0 | - = | Backspace                    |
+| Tab | Q W E R T Y U I O P | [ ] | \                           |
+| Caps | A S D F G H J K L | ; ' | Enter                       |
+| Shift | Z X C V B N M | , . / | Shift                        |
++----------------------------------------------------------------+
+BRITISH / UK (00000809) - QWERTY
++----------------------------------------------------------------+
+| ` | 1 2 3 4 5 6 7 8 9 0 | - = | Backspace                    |
+| Tab | Q W E R T Y U I O P | [ ] | Enter                       |
+| Caps | A S D F G H J K L | ; ' # | Enter                      |
+| Shift | \ | Z X C V B N M | , . / | Shift                    |
++----------------------------------------------------------------+
+DANISH (00000406) - QWERTY
++----------------------------------------------------------------+
+| half | 1 2 3 4 5 6 7 8 9 0 | + acute | Backspace             |
+| Tab | Q W E R T Y U I O P | a-ring diaeresis | Enter          |
+| Caps | A S D F G H J K L | ae oe apostrophe | Enter           |
+| Shift | < | Z X C V B N M | , . - | Shift                    |
++----------------------------------------------------------------+
+GERMAN / GERMANY (00000407) - QWERTZ
++----------------------------------------------------------------+
+| circumflex | 1 2 3 4 5 6 7 8 9 0 | sharp-s acute | Backspace  |
+| Tab | Q W E R T Z U I O P | u-umlaut + | Enter                |
+| Caps | A S D F G H J K L | o-umlaut a-umlaut # | Enter        |
+| Shift | < | Y X C V B N M | , . - | Shift                    |
++----------------------------------------------------------------+
+
+SHIFTED NUMBER ROW (physical 1 through 0)
++---------+---+---+---------+----------+---+---+---+---+---+---+
+| Layout  | 1 | 2 | 3       | 4        | 5 | 6 | 7 | 8 | 9 | 0 |
++---------+---+---+---------+----------+---+---+---+---+---+---+
+| US      | ! | @ | #       | $        | % | ^ | & | * | ( | ) |
+| British | ! | " | GBP     | $        | % | ^ | & | * | ( | ) |
+| Danish  | ! | " | #       | currency | % | & | / | ( | ) | = |
+| German  | ! | " | section | $        | % | & | / | ( | ) | = |
++---------+---+---+---------+----------+---+---+---+---+---+---+
+Danish currency sign is U+00A4, not dollar.
+
+SCRIPT SYMBOLS - ACTIVE LAYOUT KEY COMBINATIONS
++--------+---------+-------------+-------------+---------------+
+| Symbol | US      | British     | Danish      | German        |
++--------+---------+-------------+-------------+---------------+
+| @      | Shift+2 | Shift+'     | AltGr+2     | AltGr+Q       |
+| "      | Shift+' | Shift+2     | Shift+2     | Shift+2       |
+| '      | ' key   | ' key       | ' key       | Shift+#       |
+| #      | Shift+3 | # key       | Shift+3     | # key         |
+| $      | Shift+4 | Shift+4     | AltGr+4     | Shift+4       |
+| \      | \ key   | ISO \ key   | AltGr+acute | AltGr+sharp-s |
+| |      | Shift+\ | Shift+ISO \ | AltGr+ISO < | AltGr+ISO <   |
+| [      | [ key   | [ key       | AltGr+8     | AltGr+8       |
+| ]      | ] key   | ] key       | AltGr+9     | AltGr+9       |
+| {      | Shift+[ | Shift+[     | AltGr+7     | AltGr+7       |
+| }      | Shift+] | Shift+]     | AltGr+0     | AltGr+0       |
+| /      | / key   | / key       | Shift+7     | Shift+7       |
+| :      | Shift+; | Shift+;     | Shift+.     | Shift+.       |
+| ;      | ; key   | ; key       | Shift+,     | Shift+,       |
+| _      | Shift+- | Shift+-     | Shift+-     | Shift+-       |
+| <      | Shift+, | Shift+,     | ISO < key   | ISO < key     |
+| >      | Shift+. | Shift+.     | Shift+ISO < | Shift+ISO <   |
++--------+---------+-------------+-------------+---------------+
+
+AltGr is right Alt. Physical key legends may not match the active layout.
+German swaps Y/Z. AltGr+E gives EUR on standard German and Danish layouts.
+Dead accents wait for a following character; use Space for a literal accent.
+These maps do not cover US International, UK Extended or Swiss German.
+Win+Space switches installed layouts. Check Settings > Time & language
+and the on-screen keyboard when keys do not produce expected characters.

@@ -1,0 +1,571 @@
+https://learn.microsoft.com/en-us/powershell/?view=powershell-7.3
+
+https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system?view=powershell-7.3#the-three-core-cmdlets-in-powershell
+
+https://learn.microsoft.com/en-us/training/modules/understand-command-syntax-windows-powershell/
+
+Study plan
+
+• PowerShell data types
+• Configuring PowerShell and Networks
+• PowerShell classes
+• Strings and expressions
+• Access Win. Management Instrumentation (WMI)
+• PowerShell scripting language
+• Using modules and .NET Framework classes
+• Input and output commandlets
+
+Get-Help CmdletName -Parameter *
+
+Get-Module -ListAvailable -All
+
+Get-LocalUser
+
+Get-Service | Get-Member
+
+Get-ComputerInfo
+Get-ComputerInfo -Property "*version"
+
+$C = Get-Culture
+$C | Format-List -Property *
+
+Get-History -Count 50
+
+Get-Event | Format-List -Property *
+
+Help help -ShowWIndow
+Help help -details
+Help *network*
+Get-command -Noun *Ad
+Get-Verb | Sort-Object –Property Verb
+Get-alias | get-member
+$host.version
+Install-WUUpdates
+
+
+CMD
+Ver - windows version
+Powershell
+$PSVersionTable
+download Windows Management Framework Y 
+
+The syntax diagrams use the following symbols:
+
+A hyphen - indicates a parameter name. In a command, type the hyphen immediately before the parameter name with no intervening spaces, as shown in the syntax diagram.
+
+For example, to use the Name parameter of New-Alias, type: New-Alias -Name.
+
+Angle brackets <> indicate placeholder text. You don't type the angle brackets or the placeholder text in a command. Instead, you replace it with the item that it describes.
+
+The placeholder inside the angle brackets identifies the .NET type of the value that a parameter takes. For example, to use the Name parameter of the New-Alias cmdlet, you replace the <string> with a string, which is a single word or a group of words that are enclosed in quotation marks.
+
+Brackets [] around parameters indicate optional items. A parameter and its value can be optional, or the name of a required parameter can be optional.
+
+For example, the Description parameter of New-Alias and its value are enclosed in brackets because they're both optional.
+
+The brackets also indicate that the value of the Name parameter is required, but the parameter name, -Name, is optional.
+
+In each parameter set, the parameters appear in position order. The order of parameters in a command matters only when you omit the optional parameter names. When parameter names are omitted, PowerShell assigns values to parameters by position and type. For more information about parameter position, see about_Parameters.
+
+Brackets [] appended to a .NET type indicate that the parameter can accept one or more values of that type. Enter the values as a comma-separated list.
+
+For example, the Name parameter of the New-Alias cmdlet takes only one string.
+
+New-Alias [-Name] <string>
+
+New-Alias -Name MyAlias
+
+But the Name parameter of Get-Process can take one or more strings.
+
+Get-Process [-Name] <string[]>
+
+Get-Process -Name Explorer, Winlogon, Services
+
+Braces {} indicate an "enumeration," which is a set of valid values for a parameter.
+
+The values in the braces are separated by vertical bars |. These bars indicate an exclusive-OR choice, meaning that you can choose only one value from the set of values that are listed inside the braces.
+
+For example, the syntax for the New-Alias cmdlet includes the following value enumeration for the Option parameter:
+
+New-Alias -Option {None | ReadOnly | Constant | Private | AllScope}
+
+The braces and vertical bars indicate that you can choose any one of the listed values for the Option parameter, such as "ReadOnly" or "AllScope"
+
+New-Alias -Option ReadOnly
+
+
+How-to: PowerShell Operators $( ) @( ) :: &
+
+( ) Grouping Expression operator.
+
+Parenthesis/Brackets work just as they do in mathematics, each pair will determine the order of evaluation and return the result of the expression within.
+
+PS C:\> (2 + 3) * 5
+
+A shortcut syntax is available (…).property that returns a single property from an item or a collection (PowerShell V3.0):
+
+PS C:\> (dir).FullName
+
+To return multiple properties, pipe to ForEach-Object (%) or Select-Object
+Simple Parenthesis will also evaluate variable assignments - displaying the value(s).
+for example:
+
+$msg = "Hello World"
+"$msg"
+
+can be rewritten as:
+$msg = "Hello World")
+
+$( ) Subexpression operator.
+
+While a simple ( ) grouping expression means 'execute this part first', a subexpression $( ) means 'execute this first and then treat the result like a variable'.
+Use a SubExpression to return specific properties of an object.
+
+Unlike simple ( ) grouping expressions, a subexpression can contain multiple ; semicolon ; separated ; statements.
+
+The output of each statement contributes to the output of the subexpression. For a single result, it will return a scalar. For multiple results, it will return an array.
+Subexpressions allow you to evaluate and act on the results of an expression in a single line; with no need for an intermediate variable:
+
+if($(code that returns a value/object) -eq "somevalue") { do_something }
+
+PS C:\> $city="Copenhagen"
+
+PS C:\> $strLength = "$($city.length)"
+10
+
+# In PowerShell 5.1+ this can be simplified to the expression $strLength = "$city.length"
+
+PS C:\> "The result of 2 + 3 = $(2+3)"
+PS C:\> $(Get-WMIObject win32_Directory)
+
+@( ) Array Subexpression operator.
+
+An array subexpression behaves just like a subexpression except that it guarantees that the output will be an array.
+This works even if there is no output at all (gives an empy array.)
+If the result is a scalar value then the result will be a single element array containg the scalar value.
+
+(If the output is already an array then the use of an array subexpression will have no effect, it won’t wrap one array inside of another array.)
+
+PS C:\> @(Get-WMIObject win32_logicalDisk)
+
+Using either $( ) or @( )will cause the powershell parser to re-evaluate the parsing mode based on the first non-whitespace character inside the parentheses. A neat effect of this is that object properties will be evaluated instead of being treated as literal strings:
+
+"$user.department" ==> JDOE.department
+"$($user.department)" ==> "Human Resources"
+
+:: Static member operator
+
+Call the static properties operator and methods of a .NET Framework class.
+To find the static properties and methods of an object, use the -Static parameter of Get-Member:
+
+[string] | gm -static
+[datetime] | gm -static
+
+Run the static operators prefixing them with ::
+
+[datetime]::now
+[datetime]::Utcnow
+[string]::join('~','aaa','bbb','ccc')
+aaa~bbb~ccc
+
+, Comma operator
+
+As a binary operator, the comma creates an array.
+As a unary operator, the comma creates an array with one member. Place the comma before the member.
+& Call operator
+
+Run a command, script, or script block. The call operator, also known as the "invocation operator," lets you run commands that are stored in variables and represented by strings. Because the call operator does not parse the command, it cannot interpret command parameters.
+
+PS C:\> $c = "get-executionpolicy"
+PS C:\> $c
+get-executionpolicy
+PS C:\> & $c
+AllSigned
+&& Pipeline Chain Operator
+
+If command1 succeeds then execute command2 (IF)
+command1 && command2
+
+Conditional chain pipelines are available in PowerShell 7.0
+|| Pipeline Chain Operator
+
+Execute command2 only if command1 fails (OR)
+command1 || command2
+
+Conditional chain pipelines are available in PowerShell 7.0
+
+. Dot sourcing operator
+
+Run a script in the current scope so that any functions, aliases, and variables that the script creates are added to the current scope. (without dot sourcing, the variables created within a script will all disappear when the script finishes.)
+
+. C:\sample1.ps1
+. .\sample2.ps1
+
+Note: The dot sourcing operator is followed by a space. Use the space to distinguish the dot from the dot (.) symbol that represents the current directory.
+
+-f Format operator
+
+Format a string expression.
+Place {0} {1} etc. into the string as placemarkers where you want the variables to appear, immediately follow the string with the -f operator and then lastly, the list of comma separated variables which will be used to populate the placemarkers.
+
+Get-ChildItem c:\ | ForEach-Object {'File {0} Created {1}' -f $_.fullname,$_.creationtime}
+
+Optional format string(s) can be included to add padding/alignment and display dates/times/percentages/hex etc correctly, see the -f format page for full details.
+
+..Range operator
+Produce a sequence of numbers:
+10..20
+5..25
+
+This can also be used with a fractional prefix (.)
+-5...9  # all integer values between -5 and 0.9
+-5..0.9 # a more readable version of the same thing.
+
+Related PowerShell Cmdlets
+
+Comparison Operators -eq -neq -contains etc.
+Scriptblock - A collection of statements: { … }
+Variables - PowerShell Variables and basic Mathematical operators (+ - = /)
+Pipelines - Pass objects down the pipeline.
+
+How-to: Pass parameters to a PowerShell script.
+
+Script Parameters / Arguments (for scripts, functions and script blocks)
+Pass arguments to a script or cmdlet by separating them with spaces:
+
+PS C:\> Get-ChildItem -Path $env:windir -Filter *.dll -Recurse
+
+This can be made a little more readable by breaking up long lines with PowerShell’s escape character:
+
+PS C:\> Get-ChildItem `
+  -Path "$env:windir" `
+  -Filter *.dll `
+  -Recurse
+
+To pass multiple arguments to a script you can splat them:
+
+$myargs = @{
+  Path = "$env:windir"
+  filter = '*.dll
+  Recurse = $true
+}
+Get-ChildItem @myargs
+
+The above will be expanded to: Get-ChildItem -Path $env:windir -Filter *.dll -Recurse
+Enclose strings inside double-quotes, and any variables inside will be expanded.
+
+$args
+
+Within a script or function you can refer to unnamed arguments using the $args array, for example passing all the arguments through to a cmdlet. You can also refer to specific arguments by their position:
+
+"First argument is " + $Args[0]
+"Second argument is " + $Args[1]
+
+So if you call the script above like ./demoscript.ps1 "Alpha" "Beta", it will return:
+
+"First argument is Alpha
+"Second argument is Beta
+
+The $args array only contains the values for undeclared parameters, so this approach will only work in a non-advanced function or script.
+
+Param
+To define arguments by name, use a param statement, which is a comma separated list of variables, optionally prefixed with a [data type] and/or with = default values.
+
+If used, the param statement MUST be the first thing in your script or function:
+param (
+    [string]$price = 100, 
+    [string]$ComputerName = $env:computername,    
+    [string]$username = $(throw "-username is required."),
+    [string]$password = $( Read-Host -asSecureString "Input password" ),
+    [switch]$SaveData = $false
+)
+write-output "The price is $price"
+write-output "The Computer Name is $ComputerName"
+write-output "The True/False switch argument is $SaveData"
+Calling this script, and setting the switch parameter -SaveData to $TRUE:
+
+.\demo.ps1 -ComputerName "\\server64" -SaveData
+or setting -SaveData to $FALSE:
+
+.\demo.ps1 -ComputerName "\\server64" -SaveData:$false
+
+Defaults in PowerShell 3.0 and above
+
+In PowerShell 3.0 if an arguments default value is omitted, there is an implied default value of $true you can use this to shorten both params and parameter attributes, (n.b. leaving out the = $true in this way will prevent the script from running in PowerShell 1.0 or 2.0)
+
+Param (
+   [Parameter(ValueFromPipelineByPropertyName)]
+   [string] $DemoParameter
+)
+
+Parameter Attributes
+
+In an Advanced Function, the params statement block can also optionally define parameter attributes:
+
+[Parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)] 
+
+These affect the function parameters as follows:
+
+Mandatory - Whether the parameter is mandatory or optional (the default)
+
+ValueFromPipeline - Accept values via the pipeline, of the same type expected by the parameter or that can be converted to the type that the parameter is expecting.
+
+ValueFromPipelineByPropertyName - Accept values via the pipeline of the same type expected by the parameter and which also must have the same name as the parameter accepting pipeline input.
+
+An Advanced Function is one that contains either a [cmdletbinding()] attribute or the Parameter attribute, or both.
+
+cmdletbinding adds several capabilities such as additional parameter checking, and the ability to easily use Write-Verbose.
+
+A function with cmdletbinding will throw an error if unhandled parameter values appear on the command line.
+
+Drag and Drop
+
+To pass file or folder names into a PowerShell script with drag and drop, use the  
+'ValueFromRemainingArguments' parameter:
+[CmdletBinding()]
+param (
+  [Parameter(ValueFromRemainingArguments=$true)] $Path
+)
+"The file or folder(s) you dragged and dropped are:"
+$Path
+
+Call the above with a one line batch file, then to run, drag and drop files or folders onto the batch file:
+
+@Echo off
+pwsh.exe -noexit -file c:\scripts\demo.ps1 %*
+
+or for pre-powershell 6:
+
+@Echo off
+powershell.exe -noexit -file c:\scripts\demo.ps1 %*
+
+Cmdlet Parameters
+
+Almost every PowerShell cmdlet can accept one or more optional parameters which can be supplied on the command line in the form -Parameter_Name Parameter_Value
+
+The name of the parameter is always preceded by a hyphen (-)
+
+The Parameter_value often needs to be provided in a specific data type (e.g. string or integer)
+To find these details use  Get-Help -detailed cmdletName
+
+In some cases, the Parameter_Name is implied and does not need to be explicitly included.
+
+In syntax descriptions:
+
+[-Param] -- is optional 
+  -Param  -- is required
+
+If you exclude the Parameter Names you must ensure that the Parameter Values are listed in the correct order (assuming more than one value is being passed .)
+
+Parameter Names will be ignored if contained in quotation marks.
+
+Multiple values (for the same parameter) can be separated with commas.
+
+Parameters for external commands
+
+When calling a non-PowerShell command or CMD utility then the parameters won’t follow any PowerShell conventions,
+
+Generally any arguments to external commands should be surrounded in quotes if needed due to spaces/long 
+filenames (just like the CMD shell) or if any part of the command uses characters that have a special meaning to PowerShell such as brackets ( ) or { } s
+
+See the & CALL operator page for more ways to execute a command, script or function.
+
+How-to: Use the PowerShell Pipeline.
+
+A common scripting requirement is to loop through a collection of items (files, registry entries etc.)
+Pipelines provide an easy way to achieve this, for example consider the following script:
+
+$a = Get-ChildItem *.txt
+ foreach ($file in $a)
+ {
+  if ($file.length -gt 100) 
+  {
+  Write-Host $file.name
+  }
+ }
+Rewriting this with a pipeline it becomes a one liner:
+
+Get-ChildItem *.txt | where {$_.length -gt 100} | Format-Table name
+
+To chain commands together into a pipeline, specify each command in the order that they should run (left to right).
+
+Separate the commands with a pipe symbol (|).
+
+The commands will pass the necessary objects down the pipeline as part of a single operation. It is important to emphasise that these are full rich data objects not simple items of text as they would be in a unix shell.
+
+The $_ is a variable created automatically by PowerShell to store the current pipeline object. All properties of 
+the pipeline object can be accecced via this variable.
+In PowerShell 3.0 and above a new automatic variable called $PSItem is available, this is exactly the same as 
+$_
+It just provides an alternative name to make your pipeline code easier to read.
+
+Some common destinations for piped output:
+
+| Format-Table -Property name,value -wrap   Prettify the output.
+| Out-Host -paging   View the output a page at a time (like the less utility in unix)
+| Get-Member   View all the methods & properties.
+
+How-to: Some basic PowerShell principles - Objects, Methods and Properties
+
+A key concept to grasp when starting to work in PowerShell is that everything is an object.
+As a comparison example with the CMD shell, the old DIR command has a default output of:
+
+Date Time <DIR> FileSize FileName
+
+Because the output is plain text, you have virtually no choice about the output format, you can’t for example ask for just the FileNames followed by the Dates.
+
+PowerShell in contrast will list files (or anything else) as an object, so Get-ChildItem has a default output of:
+
+Mode LastWriteTime Size/Length Name
+
+Those output items are just the default properties of the object, if they don’t happen to suit your purposes today, you can choose to return a different set of properties that you do want:
+
+PS C:\> Get-ChildItem | Select-Object Name, LastWriteTime
+# or in short format
+PS C:\> gci | Select Name, LastWriteTime
+PS C:\> $a = (Get-ChildItem c:\docs\sample.txt)
+PS C:\> Write-Host $a.fullname $a.length $a.lastwritetime
+
+The items chosen will be displayed in the order you specify with Select-Object.
+
+What is an object?
+
+An object has an object type (e.g. a file object is a FileInfo type, a registry location object is a PathInfo type)
+An object has methods (e.g. a file object can be copied, a registry key has a value that can be deleted)
+An object has properties (e.g. a file object has a FileSize and a DateModified, a memory process object has a PID and a MaxWorkingSet)
+
+To list all this meta data for an object use the Get-Member command:
+
+PS C:\> Get-ChildItem | Get-Member
+PS C:\> Get-Process | Get-Member
+PS C:\> Get-Location | Get-Member
+PS C:\> Get-Service | Get-Member
+PS C:\> $myobjectvariable | Get-Member
+
+To narrow this down further you can choose to list only Methods, Properties or NoteProperties (NoteProperties are just properties inherited from the PowerShell environment)
+
+PS C:\> Get-ChildItem | Get-Member -membertype method
+PS C:\> gci | gm -membertype NoteProperty
+PS C:\> gci | gm -membertype *property
+
+Perform a method on an object like this:
+
+PS C:\> $a=Get-ChildItem C:\MyDemoFile.txt
+PS C:\> $a.get_lastAccessTime()
+PS C:\> $a.gettype()
+PS C:\> $a.MoveTo("c:\demo files\MyDemoFile.txt")
+
+A method can also be used to take an action on a property value:
+
+PS C:\> $a.name.ToUpper()
+
+The ability to use object methods to take specific actions, and object properties to manipulate data becomes particularly useful when you start to combine multiple commands into a single pipeline.
+
+How-to: Standard DateTime Format patterns for PowerShell:
+Format pattern	Description
+d	ShortDate pattern e.g. get-date -format "d" ➞ 2023-03-29 (this will vary by culture/locale)
+D	LongDate pattern ➞ 29 March 2023 (this will vary by culture/locale)
+f	Full date and time (long date and short time) ➞ 29 March 2023 18:40 (this will vary by culture/locale)
+F	FullDateTime pattern (long date and long time) ➞ 29 March 2023 18:40:22 (this will vary by culture/locale)
+g	General (short date and short time) ➞ 2023-03-29 18:40 (this will vary by culture/locale)
+G	General (short date and long time) ➞ 2023-03-29 18:40:22 (this will vary by culture/locale)
+m, M	MonthDay Pattern ➞ 29 March (this will vary by culture/locale)
+o, O	Round-trip date/time pattern; with this format pattern, the formatting or parsing operation always uses the invariant culture. ➞ 2023-03-29T18:40:22.6658990+01:00
+r, R	RFC1123 pattern; with this format pattern, the formatting or parsing operation always uses the invariant culture. ➞ Wed, 29 Mar 2023 18:40:22 GMT
+s	SortableDateTime pattern (based on ISO 8601) using local time; with this format pattern, the formatting or parsing operation always uses the invariant culture. ➞ 2023-03-29T18:40:22
+t	ShortTime Pattern ➞ 18:40 (this will vary by culture/locale)
+T	LongTime Pattern ➞ 18:40:22 (this will vary by culture/locale)
+u	UniversalSortableDateTime pattern using the format for universal time display; with this format pattern, the formatting or parsing operation always uses the invariant culture.➞ 2023-03-29 18:40:22
+U	Full date and time (long date and long time) using universal time.➞ 29 March 2023 17:40:22 (this will vary by culture/locale)
+y, Y	YearMonth pattern ➞ March 2023 (this will vary by culture/locale)
+
+The Regional and Language options settings in Control Panel will influence the result string produced by formatting which includes any non-culture invariant format specifiers. In other words, within a known culture/locale users may change the date/time formatting to be non-standard for that locale.
+
+Custom DateTime format patterns:
+Format pattern	Description
+d, %d	The day of the month. Single-digit days do not have a leading zero ➞ 9.
+If the format pattern is not combined with other format patterns, just "d" alone, then the application will apply the standard ShortDate Pattern. ➞ 2023-03-29 (which will vary by culture/locale)
+dd	The day of the month. Single-digit days have a leading zero. ➞ 09
+ddd	The abbreviated name of the day of the week, (culture-specific string).
+dddd	The full name of the day of the week, (culture-specific string).
+f, %f	The fraction of a second in single-digit precision: tenths of a second. The remaining digits are truncated.
+If the format pattern is not combined with other format patterns, just "f" alone, then the application will apply the standard Full date and time Pattern. ➞ 29 March 2023 18:40:22 (which will vary by culture/locale)
+ff	The fraction of a second in double-digit precision: hundredths of a second. The remaining digits are truncated.
+fff	The fraction of a second in three-digit precision: milliseconds. The remaining digits are truncated.
+ffff	The fraction of a second in four-digit precision: ten thousandths of a second. The remaining digits are truncated.
+fffff	The fraction of a second in five-digit precision: hundred thousandths of a second. The remaining digits are truncated.
+ffffff	The fraction of a second in six-digit precision: millionths of a second. The remaining digits are truncated.
+fffffff	The fraction of a second in seven-digit precision: ten millionths of a second. The remaining digits are truncated.
+F, %F	Displays the most significant digit of the seconds fraction: tenths of a second. Nothing is displayed if the digit is zero.
+If this format pattern is not combined with other format patterns, just "F" alone, then the application will apply the standard FullDateTime pattern. ➞ 29 March 2023 18:40:22 (which will vary by culture/locale)
+FF	Displays the two most significant digits of the seconds fraction: hundredths of a second. However, trailing zeros, or two zero digits, are not displayed.
+FFF	Displays the three most significant digits of the seconds fraction: milliseconds. However, trailing zeros, or three zero digits, are not displayed.
+FFFF	Displays the four most significant digits of the seconds fraction: ten thousandths of a second. However, trailing zeros, or four zero digits, are not displayed.
+FFFFF	Displays the five most significant digits of the seconds fraction: hundred thousandths of a second. However, trailing zeros, or five zero digits, are not displayed.
+FFFFFF	Displays the six most significant digits of the seconds fraction: millionths of a second. However, trailing zeros, or six zero digits, are not displayed.
+FFFFFFF	Displays the seven most significant digits of the seconds fraction: ten millionths of a second. However, trailing zeros, or seven zero digits, are not displayed.
+gg	The period or era. This pattern is ignored if the date to be formatted does not have an associated period or era string.
+h, %h	The hour in a 12-hour clock. Single-digit hours do not have a leading zero. If this format pattern is not combined with other format patterns, just "h" alone, then the application will throw an error.
+hh	The hour in a 12-hour clock. Single-digit hours have a leading zero. ➞ 02
+H, %H	The hour in a 24-hour clock. Single-digit hours do not have a leading zero. If this format pattern is not combined with other format patterns, just "H" alone, then the application will throw an error.
+HH	The hour in a 24-hour clock. Single-digit hours have a leading zero. ➞ 14
+K	Time zone offset from Universal Time Coordinate (UTC) ➞ +01:00
+For a UTC time the result string includes a "Z" character to represent a UTC date.
+m, %m	The minute, from 0 through 59. Single-digit minutes do not have a leading zero. ➞ 40
+If this format pattern is not combined with other format patterns, just "m" alone, then the application will apply the standard MonthDay Pattern ➞ 29 March (which will vary by culture/locale)
+mm	The minute. Single-digit minutes have a leading zero. ➞ 40
+M, %M	The numeric month. Single-digit months do not have a leading zero. ➞ 3
+If this format pattern is not combined with other format patterns, just "M" alone, then the application will apply the standard MonthDay Pattern ➞ 29 March (which will vary by culture/locale)
+MM	The numeric month. Single-digit months have a leading zero. ➞ 03
+MMM	The abbreviated name of the month ➞ Mar
+MMMM	The full name of the month ➞ March
+s, %s	The second. Single-digit seconds do not have a leading zero. ➞ 22
+If this format pattern is not combined with other format patterns, just "s" alone, then the application will apply the standard SortableDateTime Pattern ➞ 2023-03-29T18:40:22
+ss	The second. Single-digit seconds have a leading zero. ➞ 22
+t, %t	The first character in the AM/PM designator, if any. ➞ P
+If this format pattern is not combined with other format patterns, just "t" alone, then the application will apply the standard ShortTime Pattern ➞ 18:40
+tt	The AM/PM designator ("ante meridiem" (before noon) or "post meridiem" (after noon)), if any.
+Your application should use this format pattern for languages for which it is necessary to maintain the distinction between AM and PM. An example is Japanese, for which the AM and PM designators differ in the second character instead of the first character.
+y, %y	The year without the century. If the year without the century is less than 10, the year is displayed with no leading zero. ➞ 23
+If this format pattern is not combined with other format patterns, just "y" alone, then the application will apply the standard YearMonth pattern ➞ March 2023 (which will vary by culture/locale)
+yy	The year without the century. If the year without the century is less than 10, the year is displayed with a leading zero.
+yyy	The year in three digits. If the year is less than 100, the year is displayed with a leading zero.
+yyyy	The year in four or five digits (depending on the calendar used), including the century. Pads with leading zeros to get four digits. Thai Buddhist and Korean calendars have five-digit years. Users selecting the "yyyy" pattern see all five digits without leading zeros for calendars that have five digits. Exception: the Japanese and Taiwan calendars always behave as if "yy" is selected.
+yyyyy	The year in five digits. Pads with leading zeros to get five digits. Exception: the Japanese and Taiwan calendars always behave as if "yy" is selected.
+yyyyyy	The year in six digits. Pads with leading zeros to get six digits. Exception: the Japanese and Taiwan calendars always behave as if "yy" is selected. The pattern can be continued with a longer string of "y"s padding with more leading zeros.
+z, %z	The time zone offset ("+" or "-" followed by the hour only). Single-digit hours do not have a leading zero. For example, Pacific Standard Time is "-8".
+If this format pattern is not combined with other format patterns, just "z" alone, then the application will throw an error.
+zz	The time zone offset ("+" or "-" followed by the hour only). Single-digit hours have a leading zero. For example, Pacific Standard Time is "-08".
+zzz	The full time zone offset ("+" or "-" followed by the hour and minutes). Single-digit hours and minutes have leading zeros. For example, Pacific Standard Time is "-08:00".
+When a single digit pattern is prefixed with % that will prevent any fall back to the standard DateTime patterns (in the first table) when the format pattern is not combined with other format patterns.
+
+Default Separators
+: The default time separator
+/ The default date separator
+
+To prevent a character from being interpreted as a format specifier, you can precede it with a backslash escape 
+character (\).
+
+Any other characters added to the format pattern will be copied to the result string unchanged. ➞
+ -format "\Hour H - Minu\te m"
+
+Percent prefix
+% c Where c is a format pattern if used alone. To use format pattern "d", "f", "F", "h", "m", "s", "t", "y", "z", "H", or "M" by itself, specify "%d", "%f", "%F", "%h", "%m", "%s", "%t", "%y", "%z", "%H", or "%M". The "%" character can be omitted if the format pattern is combined with literal characters or other format patterns.
+Escape character
+\c Where c is any character. Displays the character literally. To display the backslash character, use "\\".
+
+ISO Standard dates
+
+The function below can be used to return ISO date values.
+Function DateToiso($Zeit) {
+  "Returns an array containing the ISO Year, Week and DayofWeek"
+  $DayofWeek = +$Zeit.DayofWeek
+  if ($DayofWeek -eq 0) { $DayofWeek = 7 }           # Mon=1..Sun=7
+  $Thursday = $Zeit.AddDays(4 - $DayofWeek)          # Go to nearest Thursday
+  $Week = 1+[Math]::Floor(($Thursday.DayOfYear-1)/7) # Adjusted seventh
+  $Year = $Thursday.Year         # Needed
+  $Year, $Week, $DayofWeek
+} 
+# Source Dr J R Stockton
+
+

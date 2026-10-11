@@ -1,0 +1,603 @@
+{
+  "entries": [
+    {
+      "command": "rstrui",
+      "purpose": "System Restore",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\rstrui.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\rstrui.exe"
+    },
+    {
+      "command": "msra",
+      "purpose": "Remote Assistance",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\msra.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\msra.exe"
+    },
+    {
+      "command": "regedt32",
+      "purpose": "Registry Editor",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\regedt32.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\regedt32.exe"
+    },
+    {
+      "command": "resmon",
+      "purpose": "Resource Monitor",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\resmon.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\resmon.exe"
+    },
+    {
+      "command": "inetcpl.cpl",
+      "purpose": "Internet Properties",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\inetcpl.cpl. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\inetcpl.cpl"
+    },
+    {
+      "command": "winver",
+      "purpose": "About Windows",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\winver.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\winver.exe"
+    },
+    {
+      "command": "msinfo32",
+      "purpose": "System information",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\msinfo32.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\msinfo32.exe"
+    },
+    {
+      "command": "eventvwr",
+      "purpose": "Event Viewer",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\eventvwr.exe. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\eventvwr.exe"
+    },
+    {
+      "command": "appwiz.cpl",
+      "purpose": "Programs and Features",
+      "notes": [
+        "Exact supplied full path: C:\\WINDOWS\\System32\\appwiz.cpl. Use the command name to avoid assuming the system drive is C:."
+      ],
+      "original": "C:\\WINDOWS\\System32\\appwiz.cpl"
+    },
+    {
+      "command": "control access.cpl",
+      "purpose": "Accessibility (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control sysdm.cpl",
+      "purpose": "Computer name/domain and System Properties",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools",
+      "notes": [
+        "sysdm.cpl opens System Properties; it is not Add Hardware."
+      ]
+    },
+    {
+      "command": "control appwiz.cpl",
+      "purpose": "Programs and Features",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control timedate.cpl",
+      "purpose": "Date and time",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control desk.cpl",
+      "purpose": "Display",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control inetcpl.cpl",
+      "purpose": "Internet Properties",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control main.cpl keyboard",
+      "purpose": "Keyboard",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control wgpocpl.cpl",
+      "purpose": "Microsoft Mail Post Office (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control modem.cpl",
+      "purpose": "Modem (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control main.cpl",
+      "purpose": "Mouse",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control mmsys.cpl",
+      "purpose": "Sound",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control netcpl.cpl",
+      "purpose": "Network (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control password.cpl",
+      "purpose": "Passwords (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control main.cpl pc card",
+      "purpose": "PC Card / PCMCIA (legacy)",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control powercfg.cpl",
+      "purpose": "Power options",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control printers",
+      "purpose": "Printers folder",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control intl.cpl",
+      "purpose": "Regional settings",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "control ncpa.cpl",
+      "purpose": "Network adapters",
+      "category": "Windows configuration",
+      "subcategory": "Control Panel tools"
+    },
+    {
+      "command": "hdwwiz.exe",
+      "purpose": "Add Hardware wizard"
+    },
+    {
+      "command": "wmic path softwarelicensingservice get OA3xOriginalProductKey",
+      "purpose": "Read firmware OEM key",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "cscript.exe //nologo \"%SystemRoot%\\System32\\slmgr.vbs\" /xpr",
+      "purpose": "License expiry",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "cscript.exe //nologo \"%SystemRoot%\\System32\\slmgr.vbs\" /dli",
+      "purpose": "Basic licensing information",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "cscript.exe //nologo \"%SystemRoot%\\System32\\slmgr.vbs\" /dlv",
+      "purpose": "Detailed licensing information",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "cscript.exe //nologo \"%SystemRoot%\\System32\\slmgr.vbs\" /ato",
+      "purpose": "Attempt official online activation",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "cscript.exe //nologo \"%SystemRoot%\\System32\\slmgr.vbs\" /ipk <YOUR-LICENSED-PRODUCT-KEY>",
+      "purpose": "Install licensed key for the installed Windows edition",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys",
+      "notes": [
+        "Placeholder is not executable until replaced. Do not store keys in shared manuals. Administrator required."
+      ]
+    },
+    {
+      "command": "DISM /online /Get-CurrentEdition",
+      "purpose": "Inspect Windows editions",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "DISM /online /Get-TargetEditions",
+      "purpose": "Inspect Windows editions",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys"
+    },
+    {
+      "command": "(Get-CimInstance -ClassName SoftwareLicensingService).OA3xOriginalProductKey",
+      "purpose": "Read firmware OEM product key",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys",
+      "notes": [
+        "Corrected missing opening parenthesis in one pasted example."
+      ]
+    },
+    {
+      "command": "(Get-WmiObject -Query 'select * from SoftwareLicensingService').OA3xOriginalProductKey",
+      "purpose": "Read firmware OEM product key",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys",
+      "notes": [
+        "Corrected missing opening parenthesis in one pasted example."
+      ]
+    },
+    {
+      "command": "Get-CimInstance SoftwareLicensingProduct | Where-Object { $_.PartialProductKey -and $_.Name -like \"*Windows*\" } | Select-Object Name, LicenseStatus, PartialProductKey",
+      "purpose": "Inspect Windows license records",
+      "category": "Licensing and activation",
+      "subcategory": "License status and keys",
+      "notes": [
+        "LicenseStatus 1 means licensed. Partial key is not a full installation key."
+      ]
+    },
+    {
+      "command": "reg query \"HKCU\\Control Panel\\Desktop\" /v Wallpaper",
+      "purpose": "Read wallpaper setting",
+      "category": "Registry",
+      "subcategory": "Queries, backup and editing",
+      "notes": [
+        "Sample keys must exist. Imports merge values and do not delete values added after the export. HKCU applies to the executing account."
+      ]
+    },
+    {
+      "command": "reg export \"HKCU\\Control Panel\\Desktop\" \"%USERPROFILE%\\Desktop\\Desktop-backup.reg\"",
+      "purpose": "Back up a selected key",
+      "category": "Registry",
+      "subcategory": "Queries, backup and editing",
+      "notes": [
+        "Sample keys must exist. Imports merge values and do not delete values added after the export. HKCU applies to the executing account."
+      ]
+    },
+    {
+      "command": "reg import \"%USERPROFILE%\\Desktop\\Desktop-backup.reg\"",
+      "purpose": "Merge backup values back",
+      "category": "Registry",
+      "subcategory": "Queries, backup and editing",
+      "notes": [
+        "Sample keys must exist. Imports merge values and do not delete values added after the export. HKCU applies to the executing account."
+      ]
+    },
+    {
+      "command": "reg export HKCU\\Software\\MyKey mykey.reg",
+      "purpose": "Original sample export",
+      "category": "Registry",
+      "subcategory": "Queries, backup and editing",
+      "notes": [
+        "Sample keys must exist. Imports merge values and do not delete values added after the export. HKCU applies to the executing account."
+      ]
+    },
+    {
+      "command": "Set-ItemProperty -Path 'HKCU:\\Software\\MyApp' -Name 'Setting' -Value '1234'",
+      "purpose": "Original sample modification",
+      "category": "Registry",
+      "subcategory": "Queries, backup and editing",
+      "notes": [
+        "Sample keys must exist. Imports merge values and do not delete values added after the export. HKCU applies to the executing account."
+      ]
+    },
+    {
+      "command": "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser",
+      "purpose": "Change user execution policy",
+      "category": "Registry",
+      "subcategory": "Scripting policy",
+      "notes": [
+        "Manual security decision: not a required activation step. Back up the affected key. Managed policies may take precedence."
+      ]
+    },
+    {
+      "command": "Set-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows Script Host\\Settings\" -Name Enabled -Value 1 -Type DWord",
+      "purpose": "Enable machine Script Host",
+      "category": "Registry",
+      "subcategory": "Scripting policy",
+      "notes": [
+        "Manual security decision: not a required activation step. Back up the affected key. Managed policies may take precedence."
+      ]
+    },
+    {
+      "command": "Set-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows Script Host\\Settings\" -Name Enabled -Value 1 -Type DWord",
+      "purpose": "Enable user Script Host",
+      "category": "Registry",
+      "subcategory": "Scripting policy",
+      "notes": [
+        "Manual security decision: not a required activation step. Back up the affected key. Managed policies may take precedence."
+      ]
+    },
+    {
+      "command": "New-Item -Path \"HKCU:\\Software\\Microsoft\\Windows Script Host\" -Name \"Settings\" -Force",
+      "purpose": "Create Script Host settings key",
+      "category": "Registry",
+      "subcategory": "Scripting policy",
+      "notes": [
+        "Manual security decision: not a required activation step. Back up the affected key. Managed policies may take precedence."
+      ]
+    },
+    {
+      "command": "New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows Script Host\\Settings\" -Name \"Enabled\" -Value 1 -PropertyType DWord -Force",
+      "purpose": "Enable user Script Host value",
+      "category": "Registry",
+      "subcategory": "Scripting policy",
+      "notes": [
+        "Manual security decision: not a required activation step. Back up the affected key. Managed policies may take precedence."
+      ]
+    },
+    {
+      "command": "Get-WinEvent -FilterHashtable @{LogName=\"System\"; Id=1001} -MaxEvents 20",
+      "purpose": "Recent bugcheck records",
+      "category": "System diagnosis and repair",
+      "subcategory": "BSOD diagnosis"
+    },
+    {
+      "command": "Get-ChildItem \"$env:SystemRoot\\Minidump\" -ErrorAction SilentlyContinue",
+      "purpose": "List minidumps",
+      "category": "System diagnosis and repair",
+      "subcategory": "BSOD diagnosis"
+    },
+    {
+      "command": "chkdsk /f /r",
+      "purpose": "Original disk repair example",
+      "category": "System diagnosis and repair",
+      "subcategory": "BSOD diagnosis"
+    },
+    {
+      "command": "sfc /scannow",
+      "purpose": "Repair protected Windows files",
+      "category": "System diagnosis and repair",
+      "subcategory": "BSOD diagnosis"
+    },
+    {
+      "command": "Get-Help Get-Service -Parameter *",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Module -ListAvailable -All",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-LocalUser",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Service | Get-Member",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-ComputerInfo",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-ComputerInfo -Property \"*version\"",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Culture | Format-List -Property *",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-History -Count 50",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Event | Format-List -Property *",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Help about_Operators",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Help *network*",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Command -Noun *AD*",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Verb | Sort-Object -Property Verb",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Alias | Get-Member",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "$PSVersionTable",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-Date -Format o",
+      "purpose": "PowerShell discovery and learning",
+      "category": "PowerShell and scripting",
+      "subcategory": "Discovery and learning"
+    },
+    {
+      "command": "Get-WinUserLanguageList",
+      "purpose": "Inspect current-user input languages and layouts",
+      "category": "Languages and keyboards",
+      "subcategory": "Installed input methods",
+      "notes": [
+        "Windows International module required. An elevated session can refer to a different user profile."
+      ]
+    },
+    {
+      "command": "systeminfo",
+      "purpose": "Operating system and computer information",
+      "category": "System diagnosis and repair",
+      "subcategory": "System information and logs"
+    },
+    {
+      "command": "whoami /all",
+      "purpose": "Current identity and privileges",
+      "category": "Accounts and security",
+      "subcategory": "Users and credentials"
+    },
+    {
+      "command": "driverquery /v",
+      "purpose": "Installed drivers",
+      "category": "Windows configuration",
+      "subcategory": "Devices and drivers"
+    },
+    {
+      "command": "tasklist",
+      "purpose": "Running processes",
+      "category": "System diagnosis and repair",
+      "subcategory": "System information and logs"
+    },
+    {
+      "command": "net user",
+      "purpose": "List local accounts",
+      "category": "Accounts and security",
+      "subcategory": "Users and credentials"
+    },
+    {
+      "command": "net user <USERNAME> * /add",
+      "purpose": "Create user with interactive password entry",
+      "category": "Accounts and security",
+      "subcategory": "Users and credentials"
+    },
+    {
+      "command": "netsh advfirewall show allprofiles",
+      "purpose": "Inspect firewall profiles",
+      "category": "Accounts and security",
+      "subcategory": "Firewall and protection"
+    },
+    {
+      "command": "winget list",
+      "purpose": "Inspect installed WinGet applications",
+      "category": "Windows configuration",
+      "subcategory": "Applications and features"
+    },
+    {
+      "command": "gpresult /r",
+      "purpose": "Applied policies",
+      "category": "Accounts and security",
+      "subcategory": "Group Policy"
+    },
+    {
+      "command": "Get-ExecutionPolicy -List",
+      "purpose": "Inspect execution-policy scopes without changing any settings",
+      "category": "PowerShell and scripting",
+      "subcategory": "Script execution and policy",
+      "notes": [
+        "MachinePolicy and UserPolicy take precedence over local settings. Standard read-only query; does not unblock script execution."
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Start here: staff workflow",
+      "text": "Record the ticket, symptom, Windows version and recent changes. Begin with read-only checks. Choose one specific repair, explain its impact, record the result and retest the symptom. Keep logs with the ticket after reviewing device/user details. There is no universal run-all command that fixes every PC. The terminal toolkit asks for YES on state-changing operations and does not reboot automatically.",
+      "group": "Staff workflow"
+    },
+    {
+      "title": "Registry basics",
+      "text": "Win+R opens Run; regedit opens Registry Editor. Keys contain subkeys and typed values. HKLM contains machine settings; HKCU the executing user; HKCR merged classes/file associations; HKU loaded profiles; HKCC current hardware configuration. REG_SZ is text, REG_DWORD a 32-bit number, REG_BINARY bytes, REG_EXPAND_SZ text with expandable variables. Export the specific key before an authorized edit. A .reg export is a partial backup, not system recovery. Import merges values and does not remove later additions. GUI workflow: select key, Export, then inspect/create/edit only the required values. Wallpaper edits may not refresh the desktop immediately. Use supported policy/settings for Windows Update and file associations; no universal disable-updates registry tweak is provided.",
+      "group": "Registry"
+    },
+    {
+      "title": "BSOD triage",
+      "text": "Record stop code, time, driver name and recent changes. Preserve dump files and correlate System logs. Stop codes suggest areas to investigate, not certain causes. Kernel-Power 41 alone does not establish a cause. Check storage health, RAM, cooling and manufacturer-approved drivers. Back up data before disk repairs; protect a failing disk before intensive scans. CHKDSK cannot physically repair broken hardware. Memory tests and some disk operations require a reboot. Review recent updates and overclocking. Reinstallation is a last resort after preserving data. The source bash/Copy labels are formatting artifacts; SFC and CHKDSK are Windows commands.",
+      "group": "System diagnosis and repair"
+    },
+    {
+      "title": "Windows keys and official activation",
+      "text": "Use the console licensing commands in Licensing and activation. Firmware keys can be absent; keys must match the licensed edition. Product keys in the supplied source were redacted. Never include recovered keys in shared logs. The source also describes remote download-and-execute activation scripts: these remain unreviewed source text only and have no command button. Use official activation or your organization's licensed activation method. Do not change execution policy or Script Host merely to bypass an organization policy.",
+      "group": "Licensing and activation"
+    },
+    {
+      "title": "PowerShell source corrections",
+      "text": "Use \"$($city.Length)\" for property expansion inside strings. \"$city.length\" is not equivalent in PowerShell 5.1. The supplied $msg = \"Hello World\") has an unmatched closing parenthesis. Syntax diagrams such as <string> and [-Name] are documentation, not paste-ready commands. Install-WUUpdates is not a built-in cmdlet; identify its supplying module before considering it. Get-WmiObject/Get-EventLog are Windows PowerShell legacy commands; prefer CIM/Get-WinEvent in PowerShell 7. Help -ShowWindow is graphical. The source PowerShell 7.3 links are historical version-pinned references. Date formats, operators and sample functions are learning material, not repairs.",
+      "group": "PowerShell and scripting"
+    },
+    {
+      "title": "Keyboard layouts and Windows-key shortcuts",
+      "text": "British en-GB: 00000809. US en-US: 00000409. Danish da-DK: 00000406. German Germany de-DE: 00000407. These are standard layouts, not variants such as US International or Swiss German. Win+Space switches installed layouts; Win+I opens Settings, then Time & language > Language & region > Language options > Keyboards. Win+X opens administrative shortcuts; Win+R opens Run. Physical key labels do not change with the selected layout. Get-WinUserLanguageList inspects the current user; preserve existing language lists when adding a layout. Your supplied images depict Danish, US and British. German uses QWERTZ, swaps Y/Z, and includes Ä Ö Ü ß. Cp / roo was unclear and is retained without interpretation.",
+      "group": "Languages and keyboards"
+    },
+    {
+      "title": "God Mode and Control Panel",
+      "text": "God Mode is a graphical index of existing Control Panel tasks, not an elevated repair mode or a complete list of every Windows setting. Some tasks vary by Windows build and edition. GUI references are retained for the manual; the terminal menu does not launch them. sysdm.cpl opens System Properties and computer-name/domain settings, not Add Hardware. hdwwiz.exe opens the Add Hardware wizard; hdwwiz.cpl usually opens Device Manager. Several original applets belong to older Windows versions and are marked legacy.",
+      "group": "Windows configuration"
+    },
+    {
+      "title": "Group Policy, backups and rollback",
+      "text": "Use gpresult to inspect effective policy before changing settings. Managed domain/MDM policy can override local changes. gpupdate refreshes policy; it does not remove restrictive settings. Registry and firewall toolkit changes save the previous selected values, with restore actions in the same menu. Feature changes use NoRestart; reboot manually when required. A backup of one registry value or firewall profile is not a complete configuration backup. Account creation and memberships require explicit technician choices; retain a working admin account.",
+      "group": "Accounts and security"
+    },
+    {
+      "title": "Windows Server and domain scope",
+      "text": "Server/AD/DNS/DHCP tools require the installed role or RSAT modules plus authorized connectivity. Server Core may lack graphical tools. Windows Sandbox does not reproduce a domain or every Windows Server role. Placeholders such as yourdomain.local need the actual authorized lab target. No production domain query was executed during this rebuild.",
+      "group": "Server administration"
+    },
+    {
+      "title": "PowerShell setup: scripts are disabled",
+      "group": "PowerShell and scripting",
+      "text": "The saved toolkit cannot start when the effective execution policy blocks scripts. Inspect policy scopes before choosing the approved workflow."
+    }
+  ]
+}

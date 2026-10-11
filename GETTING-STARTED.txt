@@ -1,0 +1,58 @@
+WINDOWS IT SUPPORT HANDBOOK - OFFLINE EDITION
+
+1. Extract this ZIP to a folder.
+2. Double-click Windows-Support-Guide.html to open it in a browser.
+   This file is self-contained and can be shared on its own.
+3. Use the category/subcategory menu, search or reference-view filter.
+4. PowerShell: follow the approved one-time policy setup in the guide,
+   then paste the complete PowerShell menu setup into Windows PowerShell.
+   CMD: click Copy one-line CMD starter, paste into Command Prompt and
+   press Enter. Open the selected shell as Administrator for admin tasks.
+5. Read commands and prompts before running. Changes are selected tasks;
+   no run-all repair, GUI launches or automatic reboot is included.
+
+The PowerShell starter is restored from your original uploaded starter;
+its original SHA-256 is preserved. It writes a versioned script under
+LOCALAPPDATA\WindowsSupport\Releases. PowerShell logs and selected backups
+are also stored under LOCALAPPDATA\WindowsSupport. Do not use the manual's
+sensitive OEM-key retrieval commands in a logged support session.
+
+Execution policy and managed organization controls remain in force. If
+script execution is blocked, follow the organization's approved process.
+The native CMD starter uses PowerShell inline for initial local decoding;
+the resulting menu runs in CMD. Neither starter downloads executable code.
+
+INCLUDED
+- Windows-Support-Guide.html: final standalone handbook.
+- WindowsSupport.ps1: restored 47-action terminal toolkit.
+- WindowsSupport.bat: rebuilt 26-action CMD menu.
+- dist/: complete embedded starters and toolkit copies.
+- handbooks/: identical standalone guide, source files, command manifest,
+  keyboard ASCII tables, previews and test report.
+- tools/: repeatable source extractor and handbook/CMD generators.
+- tests/: validation and optional disposable Windows Sandbox checks.
+
+WINDOWS SANDBOX (Windows edition/hardware must support it)
+From the extracted root folder in Windows PowerShell:
+  .\tests\StartWindowsSandbox.ps1
+Networking and clipboard redirection are disabled. Source files are mapped
+read-only. Results are saved under LOCALAPPDATA\WindowsSupport\SandboxResults.
+The automatic runner tests parsing/mocked control flow and selected real
+read-only diagnostics. It does NOT automatically test every command or
+apply repairs. Run feature, install, account, registry and firewall changes
+only in a separately reviewed disposable Windows lab.
+
+CURRENT VALIDATION
+See handbooks/TEST-RESULTS.md. The build machine is Linux: browser and
+structural checks and PowerShell parsing/control-flow mocks ran here.
+Windows repair effects and the Sandbox launcher have not run here.
+Review test output before deploying to staff; no command fixes all PCs.
+
+REBUILD (developer machine only; Python is not needed on staff PCs)
+  python tools/prepare_reference.py
+  python tools/build_batch.py
+  python tools/build_guide.py
+  python tests/ValidateHandbook.py
+  node --check tools/guide.js
+Optional browser checks need Python Playwright plus Chromium.
+PowerShell validation runs with tests/ValidatePowerShell.ps1.
